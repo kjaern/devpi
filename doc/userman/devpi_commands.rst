@@ -112,6 +112,40 @@ install
 
 .. _cmdref_list:
 
+download
+-------
+
+::
+
+    $ devpi download -h
+    usage: devpi install [-h] [--debug] [-y] [-v] [--clientdir DIR]
+                         [--index INDEX] [-l] [-e ARG] [--venv DIR] [-r]
+                         [pkg [pkg ...]]
+
+    install packages through current devpi index. This is convenience wrapper
+    which configures and invokes ``pip install`` commands for you, using the
+    current index.
+
+    positional arguments:
+      pkg                uri or package file for installation from current index.
+
+    optional arguments:
+      -h, --help         show this help message and exit
+      --index INDEX      index to get package from (defaults to current index)
+      -l                 print list of currently installed packages.
+      -e ARG             install a project in editable mode.
+      --venv DIR         install into specified virtualenv.
+      -r, --requirement  Install from the given requirements file.
+
+    generic options:
+      --debug            show debug messages including more info on server
+                         requests
+      -y                 assume 'yes' on confirmation questions
+      -v, --verbose      increase verbosity
+      --clientdir DIR    directory for storing login and other state
+
+.. _cmdref_list:
+
 list
 ----
 
