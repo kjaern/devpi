@@ -1232,6 +1232,10 @@ def download(parser):
         help="uri or package file for installation from current index. ")
     parser.add_argument("--trusted-host", default=None,
         help="Mark this host or host:port pair as trusted, even though it does not have valid or any HTTPS.")
+    parser.add_argument("-f", "--find-links", default=None,
+        help="If a URL or path to an html file, then parse for links to archives such as sdist (.tar.gz) or wheel (.whl) files. If a local path or file:// URL that's a directory, then look for archives in the directory listing. Links to VCS project URLs are not supported.")
+    parser.add_argument("--extra-index-url", default=None,
+        help="If a URL or path to an html file, then parse for links to archives such as sdist (.tar.gz) or wheel (.whl) files. If a local path or file:// URL that's a directory, then look for archives in the directory listing. Links to VCS project URLs are not supported.")
     parser.add_argument("-d", "--dest", default=".",
         help="Download packages into <dir>.")
 

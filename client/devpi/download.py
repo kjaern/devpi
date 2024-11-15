@@ -14,6 +14,7 @@ def get_pip_version(hub, pip_path):
 
 def main(hub, args):
     current = hub.require_valid_current_with_index()
+    print(f"args {args}")
 
     venv = hub.venv
     pip_path = current.getvenvbin("pip", venvdir=venv, glob=True)
@@ -39,11 +40,17 @@ def main(hub, args):
         cmd = [
             pip_path, "download"
         ]
+        if args.extra_index_url:
+            print(f"extra_index_url ({args.extra_index_url})")
+            cmd.append(f'--extra-index-url={args.extra_index_url}')
         if args.requirement:
             cmd.append('--requirement')
         if args.dest:
             print(f"dest ({args.dest})")
             cmd.append(f'-d{args.dest}')
+        if args.find_links:
+            print(f"find_links ({args.find_links})")
+            cmd.append(f'-f{args.find_links}')
         cmd.extend(args.pkgspecs)
         hub.popen_check(
             cmd,
