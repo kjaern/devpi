@@ -19,14 +19,6 @@ def main(hub, args):
     pip_path = current.getvenvbin("pip", venvdir=venv, glob=True)
     if not pip_path:
         hub.fatal("no pip binary found")
-    if args.listinstalled:
-        hub.info("list of installed packages on", venv)
-        return hub.popen_check([pip_path, "list"])
-    elif args.editable:
-        if args.pkgspecs:
-            hub.fatal("cannot specify packagespecs and --editable")
-        args.pkgspecs = ["--editable", args.editable]
-
     if args.index and args.index.count("/") > 1:
         hub.fatal("index %r not of form USER/NAME or NAME" % args.index)
     simpleindex = current.get_simpleindex_url(args.index)
@@ -49,6 +41,9 @@ def main(hub, args):
         ]
         if args.requirement:
             cmd.append('--requirement')
+        if args.dest:
+            print(f"dest ({args.dest})")
+            cmd.append(f'-d{args.dest}')
         cmd.extend(args.pkgspecs)
         hub.popen_check(
             cmd,
@@ -58,3 +53,4 @@ def main(hub, args):
                 "PIP_PRE": "1", "PIP_USE_WHEEL": "1",
                 "PIP_INDEX_URL": simpleindex},
         )
+

@@ -1225,13 +1225,6 @@ def download(parser):
     """
     parser.add_argument("--index", default=None,
         help="index to get package from (defaults to current index)")
-    parser.add_argument("-l", action="store_true", dest="listinstalled",
-        help="print list of currently installed packages. ")
-    parser.add_argument("-e", action="store", dest="editable", metavar="ARG",
-        help="install a project in editable mode. ")
-    parser.add_argument(
-        "--venv", action="store", metavar="DIR",
-        help="install into specified virtualenv.")
     parser.add_argument("-r", "--requirement", action="store_true",
         help="Install from the given requirements file.")
     parser.add_argument("pkgspecs", metavar="pkg", type=str,
@@ -1239,6 +1232,8 @@ def download(parser):
         help="uri or package file for installation from current index. ")
     parser.add_argument("--trusted-host", default=None,
         help="Mark this host or host:port pair as trusted, even though it does not have valid or any HTTPS.")
+    parser.add_argument("-d", "--dest", default=".",
+        help="Download packages into <dir>.")
 
 @subcommand("devpi.refresh")
 def refresh(parser):
