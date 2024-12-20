@@ -1236,7 +1236,7 @@ def download(parser):
         help="If a URL or path to an html file, then parse for links to archives such as sdist (.tar.gz) or wheel (.whl) files. If a local path or file:// URL that's a directory, then look for archives in the directory listing. Links to VCS project URLs are not supported.")
     parser.add_argument("--extra-index-url", default=None,
         help="If a URL or path to an html file, then parse for links to archives such as sdist (.tar.gz) or wheel (.whl) files. If a local path or file:// URL that's a directory, then look for archives in the directory listing. Links to VCS project URLs are not supported.")
-    parser.add_argument("-d", "--dest", default=".",
+    parser.add_argument("-d", "--dest", default=None,
         help="Download packages into <dir>.")
 
 @subcommand("devpi.refresh")
