@@ -137,12 +137,26 @@ download
       --venv DIR         install into specified virtualenv.
       -r, --requirement  Install from the given requirements file.
 
-    generic options:
-      --debug            show debug messages including more info on server
-                         requests
-      -y                 assume 'yes' on confirmation questions
-      -v, --verbose      increase verbosity
-      --clientdir DIR    directory for storing login and other state
+    Package Index Options:
+      -i, --index-url <url>       Base URL of the Python Package Index (default
+                                  https://pypi.org/simple). This should point to a repository    
+                                  compliant with PEP 503 (the simple repository API) or a local  
+                                  directory laid out in the same format.
+      --extra-index-url <url>     Extra URLs of package indexes to use in addition to --index-   
+                                  url. Should follow the same rules as --index-url.
+      --no-index                  Ignore package index (only looking at --find-links URLs        
+                                  instead).
+      -f, --find-links <url>      If a URL or path to an html file, then parse for links to      
+                                  archives such as sdist (.tar.gz) or wheel (.whl) files. If a   
+                                  local path or file:// URL that's a directory, then look for    
+                                  archives in the directory listing. Links to VCS project URLs   
+                                  are not supported.
+        generic options:
+          --debug            show debug messages including more info on server
+                             requests
+          -y                 assume 'yes' on confirmation questions
+          -v, --verbose      increase verbosity
+          --clientdir DIR    directory for storing login and other state
 
 .. _cmdref_list:
 
