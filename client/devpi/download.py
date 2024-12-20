@@ -43,14 +43,14 @@ def main(hub, args):
         if args.extra_index_url:
             print(f"extra_index_url ({args.extra_index_url})")
             cmd.append(f'--extra-index-url={args.extra_index_url}')
-        if args.requirement:
-            cmd.append('--requirement')
         if args.dest:
             print(f"dest ({args.dest})")
             cmd.append(f'-d{args.dest}')
         if args.find_links:
             print(f"find_links ({args.find_links})")
             cmd.append(f'-f{args.find_links}')
+        if args.requirement:
+            cmd.append('--requirement')
         cmd.extend(args.pkgspecs)
         hub.popen_check(
             cmd,
